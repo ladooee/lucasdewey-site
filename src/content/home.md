@@ -6,7 +6,7 @@ intro: I specialize in turning ambiguous product and manufacturing challenges in
 timelineEyebrow: Career path
 timelineHeading: Experience timeline
 focusLabel: Focus
-focusText: Consumer hardware, manufacturing systems, and product development
+focusText: High precision hardware, electromechanical systems, and product development.
 locationLabel: Location
 locationText: San Francisco Bay Area
 structureLabel: Structure
