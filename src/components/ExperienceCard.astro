@@ -1,5 +1,6 @@
 ---
 import LogoBadge from "./LogoBadge.astro";
+import { withBase } from "../utils/paths";
 
 interface Props {
   href: string;
@@ -25,7 +26,7 @@ const { href, company, role, years, summary, heroImage, logoText, logoImage } = 
         <span>{role}</span>
       </div>
     </div>
-    <img class="experience-card__image" src={heroImage} alt={company} loading="lazy" />
+    <img class="experience-card__image" src={withBase(heroImage)} alt={company} loading="lazy" />
     <div class="experience-card__body">
       <p>{summary}</p>
     </div>

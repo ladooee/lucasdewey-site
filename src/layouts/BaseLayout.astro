@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { siteConfig } from "../site-config";
+import { withBase } from "../utils/paths";
 
 interface Props {
   title?: string;
@@ -21,14 +22,14 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
   </head>
   <body>
     <header class="site-header">
       <div class="shell site-header__inner">
-        <a class="site-mark" href="/portfolio/">{siteConfig.name}</a>
+        <a class="site-mark" href={withBase("/portfolio/")}>{siteConfig.name}</a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="/portfolio/experience/">Experience</a>
+          <a href={withBase("/portfolio/experience/")}>Experience</a>
           <a href={siteConfig.contactUrl}>Contact</a>
         </nav>
       </div>

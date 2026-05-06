@@ -1,6 +1,7 @@
 ---
 const title = "Lucas Dewey";
 const description = "Contact Lucas Dewey and view the portfolio.";
+import { withBase } from "../utils/paths";
 ---
 
 <!doctype html>
@@ -11,7 +12,7 @@ const description = "Contact Lucas Dewey and view the portfolio.";
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
     <style>
       :root {
         color-scheme: light;

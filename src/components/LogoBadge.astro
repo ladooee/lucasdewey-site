@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/paths";
+
 interface Props {
   company: string;
   logoText?: string;
@@ -12,7 +14,7 @@ const classes = `experience-logo ${logoImage ? "experience-logo--image" : ""} ${
 
 <div class={classes}>
   {logoImage ? (
-    <img class="experience-logo__image" src={logoImage} alt={`${company} logo`} loading="lazy" />
+    <img class="experience-logo__image" src={withBase(logoImage)} alt={`${company} logo`} loading="lazy" />
   ) : (
     <span aria-hidden="true">{logoText ?? company}</span>
   )}
