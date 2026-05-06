@@ -1,0 +1,102 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ExperienceCard from "../../components/ExperienceCard.astro";
+import LogoBadge from "../../components/LogoBadge.astro";
+import { siteConfig } from "../../site-config";
+
+const experiences = (await getCollection("experiences"))
+  .sort((a, b) => a.data.order - b.data.order);
+const homeEntry = (await getCollection("home"))[0];
+const home = homeEntry.data;
+
+const featuredExperiences = experiences.filter((entry) => entry.data.featured);
+const timelineExperiences = [...experiences].reverse();
+---
+
+<BaseLayout>
+  <section class="hero hero--tight-bottom">
+    <div class="shell hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">{home.eyebrow}</p>
+        <h1>{siteConfig.name}</h1>
+        <p class="hero__subtitle">{home.subtitle}</p>
+        <p class="hero__intro">{home.intro}</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="/portfolio/experience/">View Experience</a>
+          <a class="button" href={siteConfig.contactUrl}>Contact</a>
+        </div>
+      </div>
+      <div class="hero__panel hero__panel--profile">
+        <img class="profile-photo" src="/headshot.jpg" alt="Lucas Dewey headshot" />
+        <dl class="summary-list">
+          <div>
+            <dt>{home.focusLabel}</dt>
+            <dd>{home.focusText}</dd>
+          </div>
+          <div>
+            <dt>{home.locationLabel}</dt>
+            <dd>{home.locationText}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--timeline">
+    <div class="shell section__header section__header--stacked">
+      <div>
+        <p class="eyebrow">{home.timelineEyebrow}</p>
+      </div>
+    </div>
+    <div class="shell timeline">
+      <div class="timeline__line" aria-hidden="true"></div>
+      <div class="timeline__items" style={`--timeline-count: ${timelineExperiences.length};`}>
+        {timelineExperiences.map((experience, index) => (
+          <article class={`timeline-item ${index % 2 === 0 ? "timeline-item--top" : "timeline-item--bottom"}`}>
+            <div class="timeline-item__link">
+              <a class="timeline-item__card" href={`/portfolio/experience/${experience.id}/`}>
+                <LogoBadge
+                  company={experience.data.company}
+                  logoText={experience.data.logoText}
+                  logoImage={experience.data.logoImage}
+                  className="timeline-item__logo"
+                />
+                <h3>{experience.data.company}</h3>
+                <p>{experience.data.role}</p>
+                <span>{experience.data.years}</span>
+              </a>
+              <div class="timeline-item__stem" aria-hidden="true">
+                <span class="timeline-item__dot"></span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight-top">
+    <div class="shell section__header">
+      <div>
+        <p class="eyebrow">{home.contentsEyebrow}</p>
+        <h2>{home.contentsHeading}</h2>
+      </div>
+      <a class="text-link" href="/portfolio/experience/">{home.contentsLinkText}</a>
+    </div>
+    <div class="shell experience-grid">
+      {featuredExperiences.map((experience) => (
+        <ExperienceCard
+          href={`/portfolio/experience/${experience.id}/`}
+          company={experience.data.company}
+          role={experience.data.role}
+          years={experience.data.years}
+          summary={experience.data.summary}
+          heroImage={experience.data.heroImage}
+          logoText={experience.data.logoText}
+          logoImage={experience.data.logoImage}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

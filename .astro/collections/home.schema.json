@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "timelineEyebrow": {
+      "type": "string"
+    },
+    "timelineHeading": {
+      "type": "string"
+    },
+    "focusLabel": {
+      "type": "string"
+    },
+    "focusText": {
+      "type": "string"
+    },
+    "locationLabel": {
+      "type": "string"
+    },
+    "locationText": {
+      "type": "string"
+    },
+    "structureLabel": {
+      "type": "string"
+    },
+    "structureText": {
+      "type": "string"
+    },
+    "contentsEyebrow": {
+      "type": "string"
+    },
+    "contentsHeading": {
+      "type": "string"
+    },
+    "contentsLinkText": {
+      "type": "string"
+    },
+    "workflowEyebrow": {
+      "type": "string"
+    },
+    "workflowSteps": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notesEyebrow": {
+      "type": "string"
+    },
+    "notesText": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "eyebrow",
+    "subtitle",
+    "intro",
+    "timelineEyebrow",
+    "timelineHeading",
+    "focusLabel",
+    "focusText",
+    "locationLabel",
+    "locationText",
+    "structureLabel",
+    "structureText",
+    "contentsEyebrow",
+    "contentsHeading",
+    "contentsLinkText",
+    "workflowEyebrow",
+    "workflowSteps",
+    "notesEyebrow",
+    "notesText"
+  ]
+}

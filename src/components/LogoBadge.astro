@@ -1,0 +1,19 @@
+---
+interface Props {
+  company: string;
+  logoText?: string;
+  logoImage?: string;
+  className?: string;
+}
+
+const { company, logoText, logoImage, className = "" } = Astro.props;
+const classes = `experience-logo ${logoImage ? "experience-logo--image" : ""} ${className}`.trim();
+---
+
+<div class={classes}>
+  {logoImage ? (
+    <img class="experience-logo__image" src={logoImage} alt={`${company} logo`} loading="lazy" />
+  ) : (
+    <span aria-hidden="true">{logoText ?? company}</span>
+  )}
+</div>

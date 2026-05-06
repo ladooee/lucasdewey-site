@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "company": {
+      "type": "string"
+    },
+    "logoText": {
+      "type": "string"
+    },
+    "logoImage": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "order": {
+      "type": "number"
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
+    },
+    "role": {
+      "type": "string"
+    },
+    "years": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "string"
+    },
+    "highlights": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "publicRecognition": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "sourceLabel": {
+          "type": "string"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "summary",
+        "sourceLabel",
+        "sourceUrl"
+      ]
+    },
+    "tools": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "projects": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "contribution": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "result": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "summary",
+          "contribution",
+          "result"
+        ]
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "company",
+    "summary",
+    "order",
+    "role",
+    "years",
+    "location",
+    "heroImage",
+    "highlights",
+    "tools",
+    "projects"
+  ]
+}
