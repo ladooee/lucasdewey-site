@@ -8,7 +8,7 @@ timelineHeading: Experience timeline
 focusLabel: Focus
 focusText: High precision hardware, electromechanical systems, and product development.
 locationLabel: Location
-locationText: San Francisco Bay Area
+locationText: Seattle, WA
 structureLabel: Structure
 structureText: Each company page groups related projects, responsibilities, and outcomes together
 contentsEyebrow: Contents
